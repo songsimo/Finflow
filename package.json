@@ -1,0 +1,22 @@
+{
+  "name": "finflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:web": "pnpm --filter finflow-web dev",
+    "dev:api": "cd apps/finflow-api && gradlew bootRun",
+    "dev": "concurrently -n \"WEB,API\" -c \"cyan,green\" \"pnpm dev:web\" \"pnpm dev:api\"",
+    "build:web": "pnpm --filter finflow-web build",
+    "build:api": "cd apps/finflow-api && ./gradlew build",
+    "build": "pnpm build:web && pnpm build:api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.27.0",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
